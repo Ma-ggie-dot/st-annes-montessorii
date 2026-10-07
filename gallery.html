@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Life at St Anne's – St Anne's Montessori</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+<header><div class="wrap"><nav>
+  <a href="index.html" class="logo">🌿 St Anne's Montessori</a>
+  <div class="links">
+    <a href="index.html">Home</a>
+    <a href="index.html#programs">Programs</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="gallery.html" class="on">Gallery</a>
+    <a href="staff.html">Our Team</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="btn" href="admissions.html#tour" style="padding:9px 20px;box-shadow:none">Enrol</a>
+</nav></div></header>
+
+<div class="page-hero"><div class="wrap">
+  <h1>Life at St Anne's</h1>
+  <p>A peek into our classrooms, garden and celebrations.</p>
+</div></div>
+
+<section><div class="wrap">
+
+  <!-- Filter buttons -->
+  <div class="filters">
+    <button data-f="all">All</button>
+    <button data-f="learn">Learning</button>
+    <button data-f="outdoor">Outdoors</button>
+    <button data-f="art">Art</button>
+    <button data-f="events">Events</button>
+  </div>
+
+  <!-- Photo tiles (swap the emoji for <img> when you have photos) -->
+  <div class="gal">
+    <div class="tile" data-c="learn"   style="background:#f9e2d6">🧩<span>Work cycle</span></div>
+    <div class="tile" data-c="outdoor" style="background:#dcebdf">🌳<span>Garden time</span></div>
+    <div class="tile" data-c="art"     style="background:#fbeccb">🎨<span>Art studio</span></div>
+    <div class="tile" data-c="learn"   style="background:#d9ecf3">🔤<span>Sandpaper letters</span></div>
+    <div class="tile" data-c="outdoor" style="background:#dcebdf">⚽<span>Play day</span></div>
+    <div class="tile" data-c="events"  style="background:#efd4e0">🎭<span>Annual concert</span></div>
+    <div class="tile" data-c="art"     style="background:#fbeccb">✂️<span>Craft corner</span></div>
+    <div class="tile" data-c="events"  style="background:#f9e2d6">🎓<span>Graduation</span></div>
+    <div class="tile" data-c="learn"   style="background:#d9ecf3">🔢<span>Golden beads</span></div>
+  </div>
+
+  <p class="note" style="text-align:center">These tiles are placeholders. Replace each with &lt;img src="your-photo.jpg" alt="..."&gt; inside the same .tile div.</p>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <div class="logo" style="margin-bottom:8px">🌿 St Anne's Montessori</div>
+      <p>Nurturing curious, kind and capable children, one day at a time.</p>
+    </div>
+    <div><b>Visit</b><p>[Street address]</p><p>[Town / City]</p><p>Mon – Fri · 8:00 – 3:30</p></div>
+    <div><b>Get in touch</b><a href="mailto:info@stannesmontessori.example">info@stannesmontessori.example</a><p>[Phone number]</p></div>
+  </div>
+  <div class="copy">© 2026 St Anne's Montessori. All rights reserved.</div>
+</div></footer>
+
+<!-- Filter logic (gallery only) -->
+<script>
+const buttons = document.querySelectorAll('.filters button');
+const tiles = document.querySelectorAll('.tile');
+
+function filter(key){
+  buttons.forEach(b => b.classList.toggle('on', b.dataset.f === key));
+  tiles.forEach(t => t.classList.toggle('hide', key !== 'all' && t.dataset.c !== key));
+}
+buttons.forEach(b => b.onclick = () => filter(b.dataset.f));
+filter('all');
+</script>
+</body>
+</html>

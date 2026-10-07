@@ -1,0 +1,52 @@
+/* Extra styles for inner pages. Load AFTER style.css */
+.links a.on{color:var(--terra)}
+
+/* ---------- Page banner ---------- */
+.page-hero{background:var(--bg2);padding:54px 0 46px;text-align:center;position:relative;overflow:hidden}
+.page-hero h1{font-size:clamp(2rem,4.5vw,3rem)}
+.page-hero p{color:var(--muted);max-width:560px;margin:0 auto}
+.page-hero:before,.page-hero:after{content:"";position:absolute;border-radius:50%;opacity:.5}
+.page-hero:before{width:120px;height:120px;background:var(--sun);left:-30px;top:-30px}
+.page-hero:after{width:90px;height:90px;background:var(--sky);right:-20px;bottom:-25px}
+
+/* ---------- Admissions: numbered steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.steps .card{position:relative;padding-top:44px}
+.steps .card:before{
+  counter-increment:s;content:counter(s);
+  position:absolute;top:-16px;left:22px;width:40px;height:40px;border-radius:50%;
+  background:var(--terra);color:#fff;display:grid;place-items:center;
+  font-family:'Fraunces',serif;font-weight:700;
+}
+
+/* ---------- Admissions: fees table ---------- */
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+.tbl th{background:var(--sage-d);color:#fff;text-align:left;padding:14px 16px}
+.tbl td{padding:14px 16px;border-top:1px solid var(--line)}
+.scroll{overflow-x:auto}
+.note{color:var(--muted);font-size:.9rem;margin-top:12px}
+
+/* ---------- Admissions: FAQ ---------- */
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:800}
+details p{color:var(--muted);margin:10px 0 0}
+
+/* ---------- Gallery ---------- */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.filters button{font:inherit;font-weight:800;border:2px solid var(--sage);background:transparent;color:var(--ink);padding:8px 20px;border-radius:999px;cursor:pointer}
+.filters button.on{background:var(--sage);color:#fff}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tile{border-radius:24px;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:3.4rem;color:#2f3a33;transition:transform .2s}
+.tile:hover{transform:scale(1.03) rotate(-1deg)}
+.tile span{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;margin-top:6px}
+.tile.hide{display:none}
+
+/* ---------- Staff ---------- */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.person{text-align:center}
+.av{width:96px;height:96px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:700;font-size:1.9rem;color:#2f3a33;border:5px solid var(--bg2)}
+.person small{color:var(--sage-d);font-weight:800;display:block;margin-bottom:8px}
+
+/* ---------- Responsive ---------- */
+@media(max-width:860px){.steps,.team{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps,.team,.gal{grid-template-columns:1fr}}
